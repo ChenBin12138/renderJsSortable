@@ -15,7 +15,7 @@
 
 ```
 <sortable-renderjs>
-<view>
+ <view>
   <view v-for="str of ['aaa','bbb','ccccccccc']" :key="str" :data-id="str">{{str}}</view>
  </view>
 </sortable-renderjs>
