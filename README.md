@@ -2,7 +2,8 @@
 
 
 ## 关于兼容性
-此插件只适用于APP项目（Android/Ios）、Web项目，不支持小程序！！关于renderjs说明
+仅适用于Android、Ios、H5项目，[关于renderjs说明](https://uniapp.dcloud.net.cn/tutorial/renderjs.html#renderjs)
+
 
 ## 关于运行
 1. 下载示例项目
