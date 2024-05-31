@@ -7,7 +7,7 @@
 
 ## 关于运行
 1. 下载示例项目
-2. 安装依赖 ```npm install sortablejs```
+2. 安装依赖 ```npm i sortablejs```
 3. 运行至浏览器
 
 ## 使用示例
