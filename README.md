@@ -11,13 +11,14 @@
 
 ## 使用示例
 
+```<sortable-renderjs>``` 标签中第一个子节点会生效拖拽
+
 ```
-<sortable-renderjs :options="{}" @onListChange="verticalListChange">
-	<view class="vertical item-ul">
-		<view class="item-li" v-for="(str,i) of list" :key="i" :data-id="str">{{str}}</view>
+<sortable-renderjs>
+	<view>
+		<view v-for="str of ['aaa','bbb','ccccccccc']" :key="str" :data-id="str">{{str}}</view>
 	</view>
 </sortable-renderjs>
-
 ```
 
 ## 参数
@@ -25,4 +26,4 @@
 options 参照官网配置信息 http://www.sortablejs.com/
 
 ## 事件
-@onListChange 列表发生改变，对应sortablejs的onAdd/onRemove/onMove事件发生改变都会回掉
+@onListChange 列表发生改变，对应sortablejs的onAdd/onRemove/onMove事件发生改变都会回调
