@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view :prop="options" :change:prop="Sortable.createSortableJs">
 		<slot />
 	</view>
 </template>
@@ -12,15 +12,6 @@
 				type: Object,
 				default: function() {
 					return {}
-				}
-			}
-		},
-		watch: {
-			options: {
-				deep: true,
-				immediate: true,
-				handler(n) {
-					this.Sortable.create(n)
 				}
 			}
 		},
@@ -43,7 +34,7 @@
 			}
 		},
 		methods: {
-			async create(options = {}) {
+			async createSortableJs(options = {}) {
 
 				await this.$nextTick();
 				
