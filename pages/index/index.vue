@@ -2,6 +2,18 @@
 	<view>
 		<view class="prompt">子元素 data-id 属性在排序发生改变触发 onListChange 事件时以数组形式返回，data-id请传唯一标识不要传对象</view>
 
+
+		<view>参数示例：</view>
+		<view class="input_box">
+			<view class="input_box_left">排序动画时间animation:</view> <input class="input_box_right"
+				v-model="sortableJsOptions.animation" type="number" />
+		</view>
+		<view class="input_box">
+			<view class="input_box_left">延迟响应拖拽delay:</view> <input class="input_box_right"
+				v-model="sortableJsOptions.delay" type="number" />
+		</view>
+
+
 		<view class="tab_ul">
 			<view class="tab_li" v-for="(tab,i) of tabs" :key="tab.type" @click="currentType = tab.type" :class="{
 				active: currentType == tab.type
@@ -10,32 +22,31 @@
 			</view>
 		</view>
 
-		<template v-if="currentType == 0">
-			<sortable-renderjs @onListChange="horizontalListChange" :options="{
-			animation: 1000
-		}">
+		<view v-if="currentType == 0" key="type0">
+			<sortable-renderjs @onListChange="horizontalListChange" :options="sortableJsOptions">
 				<view class="horizontal item-ul">
 					<view class="item-li" v-for="(str,i) of list" :key="i" :data-id="str">{{str}}</view>
 				</view>
 			</sortable-renderjs>
 
-		</template>
+		</view>
 
-		<template v-if="currentType ==1">
-			<sortable-renderjs :options="{}" @onListChange="verticalListChange">
+		<view v-if="currentType ==1" key="type1">
+			<sortable-renderjs :options="sortableJsOptions" @onListChange="verticalListChange">
 				<view class="vertical item-ul">
 					<view class="item-li" v-for="(str,i) of list" :key="i" :data-id="str">{{str}}</view>
 				</view>
 			</sortable-renderjs>
-		</template>
+		</view>
 
-		<template v-if="currentType == 3">
+		<view v-if="currentType == 3" key="type3">
 
 			<view style="color: red;font-size: 30rpx;padding: 10rpx;">设置options中group命名一致即可</view>
 
 			<view class="sort_group">
 				<sortable-renderjs :options="{
-					group: 'group11'
+					group: 'group11',
+					...sortableJsOptions
 				}" @onListChange="groupListChange($event,'左边')">
 					<view class="horizontal item-ul">
 						<view class="item-li" v-for="(str, i) of list1" :key="i" :data-id="str">{{str}}</view>
@@ -43,7 +54,8 @@
 				</sortable-renderjs>
 
 				<sortable-renderjs :options="{
-					group: 'group11'
+					group: 'group11',
+					...sortableJsOptions
 				}" @onListChange="groupListChange($event,'右边')">
 					<view class="horizontal item-ul">
 						<view class="item-li" v-for="(str, i) of list2" :key="i" :data-id="str">{{str}}</view>
@@ -52,7 +64,7 @@
 
 			</view>
 
-		</template>
+		</view>
 	</view>
 </template>
 
@@ -65,6 +77,10 @@
 		},
 		data() {
 			return {
+				sortableJsOptions: {
+					animation: 150,
+					delay: 0
+				},
 				currentType: 0,
 				tabs: [{
 						label: '横向拖拽示例',
@@ -211,5 +227,19 @@
 			width: 50%;
 			min-height: 600rpx;
 		}
+	}
+
+	.input_box {
+		display: flex;
+		align-items: center;
+		padding: 10rpx;
+
+		.input_box_left {}
+
+		.input_box_right {
+			border: 1px solid #e2e2e2;
+
+		}
+
 	}
 </style>
