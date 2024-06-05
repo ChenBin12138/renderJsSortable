@@ -1,7 +1,7 @@
 {
   "id": "cms-sortable-renderjs",
   "displayName": "sortablejs-renderjs 拖拽排序",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "description": "横向竖向拖拽排序，无需固定元素宽度，简单好用",
   "keywords": [
     "sortable,renderjs"
@@ -36,7 +36,8 @@
     "platforms": {
       "cloud": {
         "tcb": "y",
-        "aliyun": "y"
+        "aliyun": "y",
+        "alipay": "n"
       },
       "client": {
         "App": {
