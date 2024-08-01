@@ -65,7 +65,7 @@
 							// source options call 
 							optCall && optCall(evt);
 
-							if (['onMove', 'onAdd', 'onRemove'].includes(eventName)) {
+							if (['onMove', 'onAdd', 'onRemove', 'onEnd'].includes(eventName)) {
 								this.$ownerInstance.callMethod('onListChange', sortable.toArray());
 							}
 						}
