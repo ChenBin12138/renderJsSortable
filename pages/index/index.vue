@@ -140,26 +140,35 @@
 				}
 				return str;
 			},
-			groupListChange(list, type) {
+			groupListChange({
+				list,
+				eventName
+			}, type) {
 				uni.showToast({
 					title: '列表发生改变,请在控制台查看。',
 					icon: 'none'
 				})
 				console.log('groupListChange:' + type, list)
 			},
-			horizontalListChange(list) {
+			horizontalListChange({
+				list,
+				eventName
+			}) {
 				uni.showToast({
 					title: '列表发生改变,请在控制台查看。',
 					icon: 'none'
 				})
-				console.log('horizontalListChange changelist :: ', list);
+				console.log('horizontalListChange changelist :: ', list, eventName);
 			},
-			verticalListChange(list) {
+			verticalListChange({
+				list,
+				eventName
+			}) {
 				uni.showToast({
 					title: '列表发生改变,请在控制台查看。',
 					icon: 'none'
 				})
-				console.log('verticalListChange changelist :: ', list);
+				console.log('verticalListChange changelist :: ', list, eventName);
 			}
 		}
 	}

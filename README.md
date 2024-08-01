@@ -24,4 +24,4 @@ options 参照官网配置信息 [SortableJs](http://www.sortablejs.com/)
 
 
 ## 事件
-@onListChange 列表发生改变，对应sortablejs的onAdd/onRemove/onMove事件发生改变都会回调
+列表发生改变 @onListChange({ list, eventName})，返回一个对象{ list , eventName }对应sortablejs的onAdd/onRemove/onMove/onEnd事件发生改变都会回调，注意在onMove回调中可能会存在多一个元素的情况

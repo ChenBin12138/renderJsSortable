@@ -16,9 +16,13 @@
 			}
 		},
 		methods: {
-			onListChange(list) {
-				this.$emit('onListChange', list);
-				this.$emit('changeList', list);
+			onListChange(list, eventName) {
+				this.$emit('onListChange', {
+					list, eventName
+				});
+				this.$emit('changeList', {
+					list, eventName
+				});
 			}
 		}
 	}
@@ -37,15 +41,15 @@
 			async createSortableJs(options = {}) {
 
 				await this.$nextTick();
-				
-				
+
+
 				if (this.sortable) {
 					Object.keys(options).forEach(k => {
 						this.sortable.option(k, options[k]);
 					})
 					return;
 				}
-				
+
 				const taretNodes = this.$ownerInstance.$el.childNodes
 				if (taretNodes.length) {
 
@@ -66,7 +70,10 @@
 							optCall && optCall(evt);
 
 							if (['onMove', 'onAdd', 'onRemove', 'onEnd'].includes(eventName)) {
-								this.$ownerInstance.callMethod('onListChange', sortable.toArray());
+								this.$ownerInstance.callMethod('onListChange', {
+									list: sortable.toArray(),
+									eventName
+								});
 							}
 						}
 
