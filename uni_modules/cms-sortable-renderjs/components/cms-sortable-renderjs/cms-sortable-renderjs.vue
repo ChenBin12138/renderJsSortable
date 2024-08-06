@@ -16,7 +16,7 @@
 			}
 		},
 		methods: {
-			onListChange(list, eventName) {
+			onListChange({ list, eventName }) {
 				this.$emit('onListChange', {
 					list, eventName
 				});
