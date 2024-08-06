@@ -16,13 +16,9 @@
 			}
 		},
 		methods: {
-			onListChange({ list, eventName }) {
-				this.$emit('onListChange', {
-					list, eventName
-				});
-				this.$emit('changeList', {
-					list, eventName
-				});
+			onListChange(e) {
+				this.$emit('onListChange', e);
+				this.$emit('changeList', e);
 			}
 		}
 	}
